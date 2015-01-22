@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
 
   resources :companies
+  resources :job_positions
+
+#get '/job_position', to: 'job_position#new_job_position'
 
   # get 'companies/show'
 
