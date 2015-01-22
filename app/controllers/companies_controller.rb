@@ -4,8 +4,10 @@ class CompaniesController < ApplicationController
   end
 
   def show
-
   	 @empresa = Company.find(params[:id])
-
   end
-end
+
+  def new
+    @empresa = Company.new
+	end 
+ end
