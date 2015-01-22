@@ -10,4 +10,17 @@ class CompaniesController < ApplicationController
   def new
     @empresa = Company.new
 	end 
- end
+	
+	def create
+		@empresa = Company.new(empresa_params)
+    if @empresa.save 
+      redirect_to @empresa
+    else 
+      render "new"
+    end
+  end
+
+    def empresa_params
+    params.require(:company).permit(:fantasy_name, :cnpj, :url, :email, :phone)
+   	end
+end
