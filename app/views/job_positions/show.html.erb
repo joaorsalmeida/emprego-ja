@@ -1,0 +1,12 @@
+<h1>Detalhes da Vaga</h1>
+<%= link_to "ver todas as vagas", job_positions_path %>
+<section>
+   		<ul>
+  			<li><strong>Título:</strong><%= @job_position.title %></li>
+  			<li><strong>Descrição:</strong><%= @job_position.job_status %></li>
+  			<li><strong>Data de Expiração:</strong><%= @job_position.expiration_date %></li>
+  			<li><strong>Status:</strong><%= @job_position.job_status %></li>
+  			<li><strong>Localização:</strong><%= @job_position.location %></li>
+  			<li><%= link_to "Editar", edit_job_position_path(@job_position.id) %></li>
+  		</ul>
+</section>
