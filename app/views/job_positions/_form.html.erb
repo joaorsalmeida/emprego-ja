@@ -1,0 +1,36 @@
+<%= form_for(@job_position) do |f| %>
+  <% if @job_position.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@job_position.errors.count, "error") %> *Os campos são obrigatórios!</h2>
+
+      <ul>
+      <% @job_position.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+				<div class="field">
+				    <label >Título</label>
+				    <%= f.text_field :title, class:"form-control"%>
+				</div>
+				<div class="field">
+				    <label >Descrição</label>
+				    <%= f.text_field :description, class:"form-control"%>
+				</div>
+				<div class="field">
+				    <label >Data de Expiração</label>
+				    <%= f.date_field :expiration_date, min:@min_expiration, max:@max_expiration, class:"form-control"%>
+				</div>
+				<div class="field">
+				    <label >Local de Trabalho</label>
+				    <%= f.text_field :location, class:"form-control"%>
+				</div>
+				<div class="field">
+					<label>Status do Anúncio</label>
+					<%= f.select(:job_status, options_for_select([['Ativa', "Ativa"], ['Desativada', "Desativada"],['Cancelada', "Cancelada"]])) %>
+				</div>
+
+	<button type="submit">Gravar Dados</button>
+<% end %>
