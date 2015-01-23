@@ -9,12 +9,20 @@ RSpec.describe CompaniesController, :type => :controller do
     end
 
     it "Should load all companies" do
-    	c1= Company.create ({:fantasy_name => "nome teste", :cnpj => "99999999999999", :url => "www.teste", :email => "eumesmo@eu.com", :phone => "23232373"})
-    	c2= Company.create ({:fantasy_name => "nome teste 2", :cnpj => "99999999999999", :url => "www.teste", :email => "emo@eu.com", :phone => "99929999"})
+    	c1= Company.create!({:fantasy_name => "nome teste",   :cnpj => 29999999999999, :url => "www.teste", :email => "eumesmo@eu.com", :phone => "23232373"})
+    	c2= Company.create!({:fantasy_name => "nome teste 2", :cnpj => 39999999999999, :url => "www.teste", :email => "emo@eu.com", :phone => "99929999"})
       get :index
-      expect(assigns(:empresas)).to match_array([c1, c2]) 
+      puts "QTDE Company #{Company.count}"
+      expect(assigns(:empresas)).to match_array([c2, c1]) 
     end
-
   end
 
+  describe "Post Update test" do
+    it "Company updated" do
+      c1= Company.create!({:fantasy_name => "nome teste", :cnpj => "99999999999999", :url => "www.teste", :email => "eumesmo@eu.com", :phone => "23232373"})
+      put :update, :id => c1.id, :company => {:fantasy_name => "vitor novo", :cnpj => "99999999999999", :url => "www.teste", :email => "eumesmo@eu.com", :phone => "23232373"}
+      c1.reload
+      expect(c1.fantasy_name).to eq("vitor novo")
+    end
+  end  
 end

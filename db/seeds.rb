@@ -6,11 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 10.times do 
-	c = Company.create
-	c.fantasy_name = "Empresa modelo"
-	c.cnpj = 12345677
-	c.email = "vitor@cdmil.com"
-	c.phone = 11992094490
-	c.url = "www.portaldabelleza.com.br"
+	c = JobPosition.create
+	c.title = "Empresa modelo"
+	c.description = "descrição"
+	c.location = "zona sul"
+	c.expiration_date = 120114
+	c.job_status = "Ativa"
 	c.save
 end
