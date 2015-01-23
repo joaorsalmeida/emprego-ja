@@ -1,0 +1,17 @@
+<h1>Vagas</h1>
+<%= link_to "Cadastrar Vagas", new_job_position_path %>
+<section>
+	<% @job_position.each do |job| %>
+		
+		<ul>
+			<li><strong>Título:</strong><%= link_to job.title, job %></li>
+			<li><strong>Data de Expiração:</strong><%= job.expiration_date %></li>
+			<li><strong>Status:</strong><%= job.job_status %></li>
+			<li><%= link_to "Editar", edit_job_position_path(job.id) %></li>
+		</ul>
+	<% end %>
+</div>
+
+
+
+</section>
