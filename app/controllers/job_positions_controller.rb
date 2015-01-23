@@ -26,8 +26,4 @@ class JobPositionsController < ApplicationController
     @job_position = JobPosition.find(params[:id])
   end
 
-  def job_position_params
-    params.require(:job_position).permit(:title, :description, :expiration_date, :loction, :job_status)
-  end
-
 end
