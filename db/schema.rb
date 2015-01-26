@@ -31,7 +31,10 @@ ActiveRecord::Schema.define(version: 20150126221438) do
     t.string   "job_status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "company_id"
   end
+
+  add_index "job_positions", ["company_id"], name: "index_job_positions_on_company_id"
 
   create_table "visits", force: true do |t|
     t.string   "ip"
