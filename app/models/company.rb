@@ -1,5 +1,5 @@
 class Company < ActiveRecord::Base
-
+  has_many :job_positions
 	validates_presence_of :fantasy_name, :cnpj, :url, :email, :phone
   validates_numericality_of :cnpj, :phone
   validates_length_of :cnpj, is: 14
