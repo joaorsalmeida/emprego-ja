@@ -40,5 +40,4 @@ class JobPositionsController < ApplicationController
     @job_position = JobPosition.find(params[:id])
     Visit.create({ip:request.remote_ip})
   end
-
 end
