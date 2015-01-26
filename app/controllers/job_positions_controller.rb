@@ -18,6 +18,20 @@ class JobPositionsController < ApplicationController
     	render "new"
   	end
 	end
+
+  def edit
+   @job_position = JobPosition.find(params[:id])
+  end
+
+  def update
+    @job_position = JobPosition.find(params[:id])
+    if @job_position.update(job_position_params)
+       redirect_to @job_position
+    else
+      render "edit"
+    end  
+  end
+
 	def job_position_params
     params.require(:job_position).permit(:title, :description, :location, :expiration_date, :job_status)
   end
