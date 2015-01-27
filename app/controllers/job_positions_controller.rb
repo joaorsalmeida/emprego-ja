@@ -29,12 +29,12 @@ class JobPositionsController < ApplicationController
   end
 
   def update
-    @job_position = JobPosition.find(params[:id])
-      if @job_position.update(job_position_params)
-         redirect_to @job_position
-      else
-        render "edit"
-      end
+  @job_position = JobPosition.find(params[:id])
+    if @job_position.update(job_position_params)
+       redirect_to @job_position
+    else
+      render "edit"
+    end
   end
 
 	def job_position_params
