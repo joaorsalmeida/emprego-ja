@@ -7,6 +7,7 @@
   			<li><strong>Data de Expiração:</strong><%= @job_position.expiration_date %></li>
   			<li><strong>Status:</strong><%= @job_position.job_status %></li>
   			<li><strong>Localização:</strong><%= @job_position.location %></li>
+  			<li><strong>Empresa:</strong><%= @job_position.company.fantasy_name %></li>
   			<li><%= link_to "Editar", edit_job_position_path(@job_position.id) %></li>
   		</ul>
 </section>

@@ -11,7 +11,6 @@ class JobPositionsController < ApplicationController
 
 	def create
 		@job_position = JobPosition.new(job_position_params)
-    puts job_position_params
   	if @job_position.save 
     	redirect_to @job_position
   	else 
@@ -20,16 +19,17 @@ class JobPositionsController < ApplicationController
 	end
 
   def edit
-   @job_position = JobPosition.find(params[:id])
+    @job_position = JobPosition.find(params[:id])
+    redirect_to @job_position if @job_position.canceled?
   end
 
   def update
     @job_position = JobPosition.find(params[:id])
     if @job_position.update(job_position_params)
-       redirect_to @job_position
+      redirect_to @job_position
     else
       render "edit"
-    end  
+    end
   end
 
 	def job_position_params
@@ -38,7 +38,6 @@ class JobPositionsController < ApplicationController
 
   def show
     @job_position = JobPosition.find(params[:id])
-    Visit.create({ip:request.remote_ip})
+    Visit.create({ip:request.remote_ip, job_position:@job_position})
   end
-
 end
