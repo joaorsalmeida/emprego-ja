@@ -31,6 +31,10 @@
 					<label>Status do Anúncio</label>
 					<%= f.select(:job_status, options_for_select([['Ativa', "Ativa"], ['Desativada', "Desativada"],['Cancelada', "Cancelada"]])) %>
 				</div>
+				<div class="field">
+					<label>Empresas</label>
+					<%=  f.collection_select(:company, Company.all, :id, :fantasy_name) %>
+				</div>
 
 	<button type="submit">Gravar Dados</button>
 <% end %>
