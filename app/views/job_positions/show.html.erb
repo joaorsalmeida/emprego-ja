@@ -9,5 +9,6 @@
   			<li><strong>Localização:</strong><%= @job_position.location %></li>
   			<li><strong>Empresa:</strong><%= @job_position.company.fantasy_name %></li>
   			<li><%= link_to "Editar", edit_job_position_path(@job_position.id) %></li>
+  			<li>essa vaga teve <%= @visits %> nas ultimas 24h</li>
   		</ul>
 </section>
