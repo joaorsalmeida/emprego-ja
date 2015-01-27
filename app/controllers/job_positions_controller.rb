@@ -20,16 +20,21 @@ class JobPositionsController < ApplicationController
 	end
 
   def edit
-   @job_position = JobPosition.find(params[:id])
+    @job_position = JobPosition.find(params[:id])
+    unless @job_position.job_status == "Cancelada"
+    @job_position = JobPosition.find(params[:id])
+    else 
+      redirect_to job_positions_path
+    end
   end
 
   def update
     @job_position = JobPosition.find(params[:id])
-    if @job_position.update(job_position_params)
-       redirect_to @job_position
-    else
-      render "edit"
-    end  
+      if @job_position.update(job_position_params)
+         redirect_to @job_position
+      else
+        render "edit"
+      end
   end
 
 	def job_position_params
