@@ -10,3 +10,18 @@
 			<li><strong>CNPJ:</strong><%= @empresa.cnpj %></li>
 		</ul>
 </div>
+
+<h2>Vagas da Empresa:</h2>
+
+<div>
+	<% @vagas.each do |vaga| %>
+	<ul>
+  		<li><strong>Título:</strong><%= vaga.title %></li>
+  		<li><strong>Descrição:</strong><%= vaga.job_status %></li>
+  		<li><strong>Data de Expiração:</strong><%= vaga.expiration_date %></li>
+  		<li><strong>Status:</strong><%= vaga.job_status %></li>
+  		<li><strong>Localização:</strong><%= vaga.location %></li>
+  		<li><%= link_to "Editar", edit_job_position_path(vaga.id) %></li>
+  	</ul>
+  	<% end %>
+</div> 
