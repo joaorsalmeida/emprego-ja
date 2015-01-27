@@ -8,4 +8,8 @@ class JobPosition < ActiveRecord::Base
 	def max_expiration
 		@max_expiration = (Date.today + 90)
 	end
+
+	def canceled?
+		@job_position.job_status == "Cancelada"
+	end
 end
