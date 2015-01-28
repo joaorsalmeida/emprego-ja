@@ -28,6 +28,8 @@ gem 'spring',        group: :development
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
+gem 'rails-i18n', '~> 4.0.0'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
 end
