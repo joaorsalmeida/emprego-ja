@@ -25,6 +25,8 @@ class JobPositionsController < ApplicationController
 
   def update
     @job_position = JobPosition.find(params[:id])
+    company = Company.find(params[:job_position][:company])
+    @job_position.company = company
     if @job_position.update(job_position_params)
       redirect_to @job_position
     else
@@ -40,5 +42,6 @@ class JobPositionsController < ApplicationController
     @job_position = JobPosition.find(params[:id])
     Visit.create({ip:request.remote_ip, job_position:@job_position})
     @visits = @job_position.visits.where("created_at > ?", 1.day.ago).count
+    @empresa = Company.find(@job_position.company.id)
   end
 end
