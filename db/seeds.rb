@@ -14,3 +14,13 @@
 	c.job_status = "Ativa"
 	c.save
 end
+
+10.times do
+	c = Company.new
+	c.fantasy_name = "pre#{Time.now}"
+	c.cnpj = 12321232233223
+	c.url = "diego.com"
+	c.email = "diego@diego.com"
+	c.phone = 12322343
+	c.save
+end
