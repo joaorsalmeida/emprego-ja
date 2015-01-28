@@ -6,7 +6,7 @@ class JobPositionsController < ApplicationController
   def new
     @job_position = JobPosition.new
     @min_expiration = Date.today
-    @max_expiration = (Date.today + 90)
+    @max_expiration = @job_position.max_expiration
   end
 
 	def create
@@ -20,6 +20,8 @@ class JobPositionsController < ApplicationController
 
   def edit
     @job_position = JobPosition.find(params[:id])
+    @min_expiration = @job_position.created_at
+    @max_expiration = @job_position.max_expiration
     redirect_to @job_position if @job_position.canceled?
   end
 
