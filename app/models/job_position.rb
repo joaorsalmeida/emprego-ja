@@ -10,6 +10,6 @@ class JobPosition < ActiveRecord::Base
 	end
 
 	def canceled?
-		@job_position.job_status == "Cancelada"
+		job_status == "Cancelada"
 	end
 end

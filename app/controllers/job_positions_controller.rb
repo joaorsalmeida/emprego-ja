@@ -39,5 +39,6 @@ class JobPositionsController < ApplicationController
   def show
     @job_position = JobPosition.find(params[:id])
     Visit.create({ip:request.remote_ip, job_position:@job_position})
+    @visits = @job_position.visits.where("created_at > ?", 1.day.ago).count
   end
 end
