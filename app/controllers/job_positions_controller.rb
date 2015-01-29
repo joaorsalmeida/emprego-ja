@@ -25,13 +25,13 @@ class JobPositionsController < ApplicationController
     @job_position = JobPosition.find(params[:id])
     @min_expiration = @job_position.created_at
     @max_expiration = @job_position.max_expiration
-    flash[:notice] = "Vaga já foi cancelada!"
+    flash[:notice] = "Vaga já foi cancelada!" if @job_position.canceled?
     redirect_to [@job_position.company, @job_position] if @job_position.canceled?
   end
 
   def update
     @job_position = JobPosition.find(params[:id])
-    @company = Company.find(params[:job_position][:company])
+    @company = Company.find(params[:company_id])
     @job_position.company = @company
     if @job_position.update(job_position_params)
       redirect_to [@company, @job_position]
