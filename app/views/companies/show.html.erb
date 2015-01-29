@@ -2,6 +2,7 @@
 <%= link_to "Ver todas a Empresas", companies_path %>
 
 <div>
+		<%= image_tag @empresa.avatar.url(:thumb) %>
 		<ul>
 			<li><strong>Nome:</strong><%= @empresa.fantasy_name %></li>
 			<li><strong>Site:</strong><%= @empresa.url %></li>

@@ -6,7 +6,11 @@ class JobPosition < ActiveRecord::Base
 	validates :job_status, inclusion: { in: %w(Ativa Desativada Cancelada)}
 
 	def max_expiration
-		@max_expiration = (Date.today + 90)
+		if created_at == nil
+			Date.today + 90
+		else
+			created_at + 90.days
+		end
 	end
 
 	def canceled?
