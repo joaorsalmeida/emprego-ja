@@ -1,6 +1,6 @@
 class Company < ActiveRecord::Base
   has_many :job_positions
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/missing.png"
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/system/companies/avatars/000/000/011/:style/missing.jpg"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   validates_presence_of :fantasy_name, :cnpj, :url, :email, :phone
   validates_numericality_of :cnpj, :phone
