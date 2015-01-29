@@ -49,5 +49,7 @@ class JobPositionsController < ApplicationController
     Visit.create({ip:request.remote_ip, job_position:@job_position})
     @visits = @job_position.visits.where("created_at > ?", 1.day.ago).count
     @empresa = @job_position.company
+    @new_job_position = @job_position.new_job_position?
+    @last_expiration_days = @job_position.last_expiration_days?
   end
 end
