@@ -20,4 +20,12 @@ class JobPosition < ActiveRecord::Base
 	def canceled?
 		job_status == "Cancelada"
 	end
+
+	def new_job_position? 
+		created_at <= Date.today + 7
+	end
+
+	def last_expiration_days?
+		expiration_date < Date.today + 7 &&  expiration_date >= Date.today
+	end
 end
