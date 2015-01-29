@@ -7,6 +7,7 @@
 			<li><strong>Título:</strong><%= link_to job.title, job %></li>
 			<li><strong>Data de Expiração:</strong><%= job.expiration_date %></li>
 			<li><strong>Status:</strong><%= job.job_status %></li>
+			<li><strong>Empresa:</strong><%= job.company.fantasy_name if job.company %></li>
 			<li><%= link_to "Editar", edit_job_position_path(job.id) %></li>
 		</ul>
 	<% end %>

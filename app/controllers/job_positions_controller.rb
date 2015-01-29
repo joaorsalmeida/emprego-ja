@@ -11,6 +11,7 @@ class JobPositionsController < ApplicationController
 
 	def create
 		@job_position = JobPosition.new(job_position_params)
+    @job_position.company = Company.find(params[:job_position][:company])
   	if @job_position.save 
     	redirect_to @job_position
   	else 
