@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150128234245) do
+ActiveRecord::Schema.define(version: 20150129213756) do
 
   create_table "companies", force: true do |t|
     t.string   "fantasy_name"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20150128234245) do
     t.integer  "job_position_id"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "address"
   end
 
   add_index "visits", ["job_position_id"], name: "index_visits_on_job_position_id"

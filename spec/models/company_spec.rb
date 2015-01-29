@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 describe Company, :type => :model do
-	let(:company_ok) {{fantasy_name: "padrao", cnpj: 12322332233223, url: "padrao.com.br", email: "padrao@default.com", phone: 12322332}}
+  let(:cnpj_valid) { 50304411000149 }
+	let(:company_ok) {{fantasy_name: "padrao", cnpj: cnpj_valid, url: "padrao.com.br", email: "padrao@default.com", phone: 12322332}}
 	
 	describe "presence validate" do
 		let(:message) { "não pode ficar em branco" }
