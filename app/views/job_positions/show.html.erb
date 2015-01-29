@@ -1,5 +1,10 @@
 <h1>Detalhes da Vaga</h1>
-<%= link_to "ver todas as vagas", job_positions_path %>
+<% if flash[:notice] %>
+  <div class="warning">
+    <p><%= flash[:notice] %></p>
+  </div>
+<% end %>
+<%= link_to "ver todas as vagas", company_job_positions_path %>
 <section>
    		<ul>
   			<li><strong>Título:</strong><%= @job_position.title %></li>
@@ -8,7 +13,7 @@
   			<li><strong>Status:</strong><%= @job_position.job_status %></li>
   			<li><strong>Localização:</strong><%= @job_position.location %></li>
   			<li><strong>Empresa:</strong><%= @job_position.company.fantasy_name %></li>
-  			<li><%= link_to "Editar", edit_job_position_path(@job_position.id) %></li>
+  			<li><%= link_to "Editar", edit_company_job_position_path(@job_position.company, @job_position) %></li>
   			<li>essa vaga teve <%= @visits %> nas ultimas 24h</li>
   		</ul>
 </section>
