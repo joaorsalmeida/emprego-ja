@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
+  get '/companies/:company_id/job_positions/canceladas', to: 'job_positions#canceladas'
 
   resources :companies do
     resources :job_positions
   end
+
   #resources :job_positions
   #get '/companies/:id/vagas', to: 'companies#show'
 
