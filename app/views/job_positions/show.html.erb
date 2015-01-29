@@ -7,6 +7,12 @@
 <%= link_to "ver todas as vagas", company_job_positions_path %>
 <section>
    		<ul>
+        <% if @new_job_position %>
+          <li><strong>Vaga nova!</strong></li>
+        <% end %>
+        <% if @last_expiration_days %>
+          <li><strong>Ultimos dias para inscriçao</strong></li>
+        <%end%>
   			<li><strong>Título:</strong><%= @job_position.title %></li>
   			<li><strong>Descrição:</strong><%= @job_position.job_status %></li>
   			<li><strong>Data de Expiração:</strong><%= @job_position.expiration_date %></li>
