@@ -1,13 +1,12 @@
 <h1>Empresas</h1>
 <%= link_to "Cadastar Empresa", new_company_path %>
 <div id="lista_empresas">
-	<% @empresas.each do |empresa| %>
-		
-		<ul>
-			<li><strong>Nome:</strong><%= link_to empresa.fantasy_name, empresa %></li>
-			<li><strong>CNPJ:</strong><%= empresa.cnpj %></li>
-			<li><strong>Email:</strong><%= empresa.email %></li>
-			<li><%= link_to "Editar", edit_company_path(empresa.id) %></li>
-		</ul>
-	<% end %>
+  <% @empresas.each do |empresa| %>
+  <ul>
+    <li><strong>Nome:</strong><%= link_to empresa.fantasy_name, empresa %></li>
+    <li><strong>CNPJ:</strong><%= empresa.cnpj %></li>
+    <li><strong>Email:</strong><%= empresa.email %></li>
+    <li><%= link_to "Editar", edit_company_path(empresa.id) %></li>
+  </ul>
+  <% end %>
 </div>
