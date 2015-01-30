@@ -18,7 +18,7 @@ class JobPosition < ActiveRecord::Base
 	end
 
 	def new_job_position? 
-		created_at <= Date.today + 7
+		created_at >= Date.today - 7
 	end
 
 	def last_expiration_days?
