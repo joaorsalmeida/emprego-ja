@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :companies do
     resources :job_positions
   end
+
+root 'home#index'
+
   #resources :job_positions
   #get '/companies/:id/vagas', to: 'companies#show'
 
