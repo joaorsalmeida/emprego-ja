@@ -16,7 +16,7 @@ class JobPositionsController < ApplicationController
     @job_position.company = Company.find(params[:company_id])
     if @job_position.save 
       redirect_to [@job_position.company, @job_position]
-    else 
+    else
       render "new"
     end
   end

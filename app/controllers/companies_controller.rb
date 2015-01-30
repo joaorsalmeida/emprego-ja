@@ -14,7 +14,7 @@ class CompaniesController < ApplicationController
 
   def create
     @empresa = Company.new(empresa_params)
-    if @empresa.save 
+    if @empresa.save
       redirect_to @empresa
     else
       render "new"
@@ -22,19 +22,19 @@ class CompaniesController < ApplicationController
   end
 
   def edit
-   @empresa = Company.find(params[:id])
+    @empresa = Company.find(params[:id])
   end
 
   def update
     @empresa = Company.find(params[:id])
     if @empresa.update(empresa_params)
-       redirect_to @empresa
+      redirect_to @empresa
     else
       render "edit"
-    end  
+    end
   end
 
   def empresa_params
     params.require(:company).permit(:fantasy_name, :cnpj, :url, :email, :phone, :avatar)
-	end
+  end
 end

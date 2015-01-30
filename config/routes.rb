@@ -1,15 +1,19 @@
 Rails.application.routes.draw do
 
-
+ get 'home/index'
+ 
   resources :companies do
     resources :job_positions
   end
+
+root 'home#index'
+
   #resources :job_positions
   #get '/companies/:id/vagas', to: 'companies#show'
 
 #get '/job_position', to: 'job_position#new_job_position'
 
-  # get 'companies/show'
+ 
 
   # get 'companies/index'
 
