@@ -1,15 +1,3 @@
 <h1>Vagas da Empresa <%= @company.fantasy_name %></h1>
 <%= link_to "Cadastrar Vagas", new_company_job_position_path %>
-<section>
-  <% @job_positions.each do |job| %>
-
-    <ul>
-      <li><strong>Título:</strong><%= link_to job.title, [job.company, job] %></li>
-      <li><strong>Data de Expiração:</strong><%= job.expiration_date %></li>
-      <li><strong>Status:</strong><%= job.job_status %></li>
-      <li><strong>Empresa:</strong><%= job.company.fantasy_name if job.company %></li>
-      <li><%= link_to "Editar", edit_company_job_position_path(job.company, job) %></li>
-    </ul>
-  <% end %>
-</div>
-</section>
+  <%= render 'list'%>
