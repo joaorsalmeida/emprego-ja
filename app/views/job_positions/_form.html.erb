@@ -36,5 +36,10 @@
   <strong><%= @job_position.company.fantasy_name %></strong>
 </div>
 
+<div class="field">
+  <label >Vaga em Destaque</label>
+  <%= f.check_box :featured %>
+</div>
+
 <button type="submit">Gravar Dados</button>
 <% end %>

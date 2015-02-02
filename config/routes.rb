@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
+ get '/companies/:company_id/job_positions/canceladas', to: 'job_positions#canceladas'
+
  get 'home/index'
+ get '/companies/:company_id/job_positions/expiradas', to: 'job_positions#expired'
  
   resources :companies do
     resources :job_positions

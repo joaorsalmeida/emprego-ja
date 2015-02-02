@@ -1,8 +1,9 @@
 <h1>Detalhes da Empresa</h1>
+
 <%= link_to "Ver todas a Empresas", companies_path %>
 
 <div>
-    <%= image_tag @JobPositon.empresa.avatar.url(:thumb) %>
+    <%= image_tag @empresa.avatar.url(:thumb) %>
     <ul>
       <li><strong>Nome:</strong><%= @empresa.fantasy_name %></li>
       <li><strong>Site:</strong><%= @empresa.url %></li>
@@ -14,10 +15,18 @@
 </div>
 <% unless @vagas.empty?  %>
 <h2>Vagas da Empresa:</h2>
-<% end %>
+
 <div>
   <% @vagas.each do |vaga| %>
   <ul>
+    <% if flash[:notice] %>
+      <div class="warning">
+        <p><%= flash[:notice] %></p>
+      </div>
+    <% end %>
+    <% if vaga.featured? %>
+      <li><strong>Vaga em destaque!</strong></li>
+    <% end %>
       <li><strong>Título:</strong><%= vaga.title %></li>
       <li><strong>Descrição:</strong><%= vaga.job_status %></li>
       <li><strong>Data de Expiração:</strong><%= vaga.expiration_date %></li>
@@ -27,3 +36,4 @@
     </ul>
     <% end %>
 </div>
+<% end %>
