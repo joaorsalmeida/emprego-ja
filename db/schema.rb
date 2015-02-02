@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150129213756) do
+ActiveRecord::Schema.define(version: 20150202233254) do
 
   create_table "companies", force: true do |t|
     t.string   "fantasy_name"
@@ -39,6 +39,17 @@ ActiveRecord::Schema.define(version: 20150129213756) do
   end
 
   add_index "job_positions", ["company_id"], name: "index_job_positions_on_company_id"
+
+  create_table "recommendations", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.text     "recommend"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "company_id"
+  end
+
+  add_index "recommendations", ["company_id"], name: "index_recommendations_on_company_id"
 
   create_table "visits", force: true do |t|
     t.string   "ip"
