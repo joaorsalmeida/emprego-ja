@@ -1,0 +1,12 @@
+<h1> Vagas em destaque </h1>
+<div>
+  <% @job_positions.featured.each do |destaque| %>
+
+    <ul>
+      <li><strong>Título:</strong><%= link_to destaque.title, [destaque.company, destaque] %></li>
+      <li><strong>Data de Expiração:</strong><%= destaque.expiration_date %></li>
+      <li><strong>Status:</strong><%= destaque.job_status %></li>
+      <li><strong>Empresa:</strong><%= destaque.company.fantasy_name if destaque.company %></li>
+    </ul>
+  <% end %>
+</div>

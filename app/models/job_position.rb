@@ -4,6 +4,7 @@ class JobPosition < ActiveRecord::Base
 
   scope :canceladas,	-> { where ("job_status == 'Cancelada'") }
   scope :expired, 	-> { where("expiration_date < ?", Date.today) }
+  scope :featured, -> { where ({featured: true}) }
 
   validates_presence_of :title, :description, :location, :expiration_date, :job_status
   validates_length_of :title, maximum: 100
@@ -27,5 +28,9 @@ class JobPosition < ActiveRecord::Base
 
   def last_expiration_days?
     expiration_date < Date.today + 7 &&  expiration_date >= Date.today
+  end
+
+  def featured
+    featured = true
   end
 end

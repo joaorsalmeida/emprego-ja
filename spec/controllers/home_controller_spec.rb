@@ -17,4 +17,14 @@ RSpec.describe HomeController, :type => :controller do
       expect(jobs.length).to eq(10) 
     end
   end
+
+  describe "not listing canceled job_positions" do
+    it "mostra apenas 10 vagas" do
+      vaga.job_status = "Cancelada"
+      vaga.save
+      get :index
+      jobs = assigns(:job_positions)
+      expect(jobs.length).to eq(10) 
+    end
+  end
  end

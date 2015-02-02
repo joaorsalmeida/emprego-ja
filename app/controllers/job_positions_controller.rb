@@ -46,7 +46,7 @@ class JobPositionsController < ApplicationController
   end
 
   def job_position_params
-    params.require(:job_position).permit(:title, :description, :location, :expiration_date, :job_status)
+    params.require(:job_position).permit(:title, :description, :location, :expiration_date, :job_status, :featured)
   end
 
   def show
@@ -56,7 +56,9 @@ class JobPositionsController < ApplicationController
     @empresa = @job_position.company
     @new_job_position = @job_position.new_job_position?
     @last_expiration_days = @job_position.last_expiration_days?
+    @featured = @job_position.featured?
   end
+  
   def expired
     @job_positions = JobPosition.expired
   end
