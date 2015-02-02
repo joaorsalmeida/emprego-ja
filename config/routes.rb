@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
  get 'home/index'
+ get '/expiradas' => 'job_positions#expired'
  
   resources :companies do
     resources :job_positions
