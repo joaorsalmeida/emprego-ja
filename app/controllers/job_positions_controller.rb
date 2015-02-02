@@ -16,7 +16,7 @@ class JobPositionsController < ApplicationController
     @job_position.company = Company.find(params[:company_id])
     if @job_position.save 
       redirect_to [@job_position.company, @job_position]
-    else 
+    else
       render "new"
     end
   end
@@ -56,5 +56,8 @@ class JobPositionsController < ApplicationController
     @empresa = @job_position.company
     @new_job_position = @job_position.new_job_position?
     @last_expiration_days = @job_position.last_expiration_days?
+  end
+  def expired
+    @job_positions = JobPosition.expired
   end
 end

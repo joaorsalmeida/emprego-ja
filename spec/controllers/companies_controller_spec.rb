@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe CompaniesController, :type => :controller do
   let(:cnpj_valido1) { 67286015000139 }
   let(:cnpj_valido2) { 50304411000149 }
+  let(:vaga) {{:title => "Vaga 1",  :description => "descrição um 2 tres", :location => "zona sul", :expiration_date => "01/03/2015", :job_status => "Ativa"}}
   describe "GET index" do
     it "returns http success" do
       get :index
@@ -20,7 +21,7 @@ RSpec.describe CompaniesController, :type => :controller do
   describe "GET jobs list" do
     it "List jobs" do
       @c1= Company.create!({:fantasy_name => "nome teste",   :cnpj => cnpj_valido1, :url => "www.teste", :email => "eumesmo@eu.com", :phone => "23232373"})
-      @j1 = JobPosition.create!({:title => "Vaga 1",  :description => "descrição um 2 tres", :location => "zona sul", :expiration_date => "01/03/2015", :job_status => "Ativa"})
+      @j1 = JobPosition.create!(vaga)
       @c1.job_positions << @j1
       @c1.reload
       get :show, id: @c1
@@ -36,5 +37,5 @@ RSpec.describe CompaniesController, :type => :controller do
       c1.reload
       expect(c1.fantasy_name).to eq("nome teste")
     end
-  end  
+  end   
 end
