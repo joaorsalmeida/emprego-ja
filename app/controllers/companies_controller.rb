@@ -27,7 +27,7 @@ class CompaniesController < ApplicationController
 
   def update
     @empresa = Company.find(params[:id])
-    if @empresa.update(empresa_params)
+    if @epresa.update(empresa_params)
       redirect_to @empresa
     else
       render "edit"

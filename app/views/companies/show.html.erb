@@ -1,4 +1,5 @@
 <h1>Detalhes da Empresa</h1>
+
 <%= link_to "Ver todas a Empresas", companies_path %>
 
 <div>
@@ -18,6 +19,14 @@
 <div>
   <% @vagas.each do |vaga| %>
   <ul>
+    <% if flash[:notice] %>
+      <div class="warning">
+        <p><%= flash[:notice] %></p>
+      </div>
+    <% end %>
+    <% if vaga.featured? %>
+      <li><strong>Vaga em destaque!</strong></li>
+    <% end %>
       <li><strong>Título:</strong><%= vaga.title %></li>
       <li><strong>Descrição:</strong><%= vaga.job_status %></li>
       <li><strong>Data de Expiração:</strong><%= vaga.expiration_date %></li>

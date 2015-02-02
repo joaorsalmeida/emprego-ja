@@ -51,6 +51,7 @@ class JobPositionsController < ApplicationController
     @empresa = @job_position.company
     @new_job_position = @job_position.new_job_position?
     @last_expiration_days = @job_position.last_expiration_days?
+    @featured = @job_position.featured?
   end
   
   def expired
