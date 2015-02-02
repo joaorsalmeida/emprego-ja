@@ -21,6 +21,11 @@ class JobPositionsController < ApplicationController
     end
   end
 
+  def canceladas
+    @company = Company.find(params[:company_id])
+    @vagas_canceladas = @company.job_positions.canceladas
+  end
+
   def edit
     @job_position = JobPosition.find(params[:id])
     @min_expiration = @job_position.created_at

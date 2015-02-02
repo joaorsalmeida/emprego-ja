@@ -1,0 +1,14 @@
+<h1>Vagas Canceladas da Empresa <%= @company.fantasy_name %></h1>
+
+<section>
+	<% @vagas_canceladas.each do |job| %>
+		
+		<ul>
+			<li><strong>Título:</strong><%= link_to job.title, [job.company, job] %></li>
+			<li><strong>Cadastro:</strong><%= job.created_at %></li>
+			<li><strong>Empresa:</strong><%= job.company.fantasy_name if job.company %></li>
+			<li><%= link_to "show", company_job_position_path(job.company, job) %></li>
+		</ul>
+	<% end %>
+</div>
+</section>
