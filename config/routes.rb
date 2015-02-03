@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :general_admins
  get '/companies/:company_id/job_positions/canceladas', to: 'job_positions#canceladas'
 
  get 'home/index'

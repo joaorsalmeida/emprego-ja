@@ -37,3 +37,6 @@ gem "cnpj_validator"
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
 end
+
+gem 'devise'
+# Found here on https://github.com/plataformatec/devise
