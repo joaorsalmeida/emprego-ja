@@ -1,5 +1,6 @@
 class JobPosition < ActiveRecord::Base
   belongs_to :company
+  belongs_to :job_position
   has_many :visits
 
   scope :canceladas,	-> { where ("job_status == 'Cancelada'") }
