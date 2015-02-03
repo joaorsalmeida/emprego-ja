@@ -37,3 +37,13 @@
     <% end %>
 </div>
 <% end %>
+<div>
+  <%@empresa.recommendations.each do |r|%>
+  <h1>Recomendações da empresa</h1>
+    <ul>
+      <li><%= r.name %></li>
+      <li><%= r.email %></li>
+      <li><%= r.recommend %></li>
+    </ul>
+  <% end %>
+</div>
