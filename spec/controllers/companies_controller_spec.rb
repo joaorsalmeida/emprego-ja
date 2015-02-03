@@ -33,9 +33,9 @@ RSpec.describe CompaniesController, :type => :controller do
   describe "Post Update test" do
     it "Company updated" do
       c1= Company.create!({:fantasy_name => "nome teste", :cnpj => cnpj_valido1, :url => "www.teste", :email => "eumesmo@eu.com", :phone => "23232373"})
-      put :update, :id => c1.id, :company => {:fantasy_name => "vitor novo", :cnpj => "99999999999999", :url => "www.teste", :email => "eumesmo@eu.com", :phone => "23232373"}
+      put :update, :id => c1.id, :company => {:fantasy_name => "vitor novo", :cnpj => cnpj_valido1, :url => "www.teste", :email => "eumesmo@eu.com", :phone => "23232373"}
       c1.reload
-      expect(c1.fantasy_name).to eq("nome teste")
+      expect(c1.fantasy_name).to eq("vitor novo")
     end
   end   
 end
