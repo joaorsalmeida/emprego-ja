@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150202233254) do
+ActiveRecord::Schema.define(version: 20150203232729) do
 
   create_table "companies", force: true do |t|
     t.string   "fantasy_name"
@@ -27,6 +27,11 @@ ActiveRecord::Schema.define(version: 20150202233254) do
     t.datetime "avatar_updated_at"
   end
 
+  create_table "job_categories", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "job_positions", force: true do |t|
     t.string   "title"
     t.text     "description"
@@ -36,10 +41,12 @@ ActiveRecord::Schema.define(version: 20150202233254) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "company_id"
-    t.boolean  "featured",        default: false
+    t.boolean  "featured",          default: false
+    t.integer  "job_categories_id"
   end
 
   add_index "job_positions", ["company_id"], name: "index_job_positions_on_company_id"
+  add_index "job_positions", ["job_categories_id"], name: "index_job_positions_on_job_categories_id"
 
   create_table "recommendations", force: true do |t|
     t.string   "name"
