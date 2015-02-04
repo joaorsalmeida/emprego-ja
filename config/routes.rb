@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+ devise_for :general_admins
  get '/companies/:company_id/job_positions/canceladas', to: 'job_positions#canceladas'
 
  get 'home/index'
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
  
   resources :companies do
     resources :job_positions
+    resources :recommendations
   end
 
 root 'home#index'
