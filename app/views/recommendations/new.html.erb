@@ -1,0 +1,38 @@
+<%= form_for([@empresa, @recomendacao]) do |f| %>
+  <% if @recomendacao.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@recomendacao.errors.count, "Erro") %>: *Os campos são obrigatórios!</h2>
+
+      <ul>
+      <% @recomendacao.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	<h1>Cadastro Empresa</h1>
+  <p>
+    <div class="field">
+    <label >Nome*:</label>
+    <%= f.text_field :name, :size =>25%>
+    </div>
+  </p>
+
+   <p>
+    <div class="field">
+    <label >Email*:</label>
+    <%= f.text_field :email, :size =>25%>
+    </div>
+ </p>
+
+  <p>
+    <div class="field">
+    <label >Recomendação*:</label>
+    <%= f.text_field :recommend,:size =>25%>
+    </div>
+  </p>
+
+  <p>
+    <button type="submit">Salvar</button>
+  <p>
+<% end %>
