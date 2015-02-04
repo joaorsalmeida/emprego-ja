@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   resources :companies do
     resources :job_positions
+    resources :recommendations
   end
 
 root 'home#index'
