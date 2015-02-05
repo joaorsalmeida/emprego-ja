@@ -1,18 +1,26 @@
 Rails.application.routes.draw do
 
-  devise_for :users
- devise_for :general_admins
+ devise_for :users
+ #Modify Sign in and out routes
+  devise_for :general_admins
+    devise_scope :general_admin do
+      get '/sign_in', to: 'devise/sessions#new'
+      get '/sign_out',to: 'devise/sessions#destroy'
+    end
+
  get '/companies/:company_id/job_positions/canceladas', to: 'job_positions#canceladas'
 
  get 'home/index'
  get '/companies/:company_id/job_positions/expiradas', to: 'job_positions#expired'
- 
+
   resources :companies do
     resources :job_positions
     resources :recommendations
-  end
+  end 
 
 root 'home#index'
+
+resources :job_categories, only: [:edit, :new, :show, :create]
 
   #resources :job_positions
   #get '/companies/:id/vagas', to: 'companies#show'

@@ -45,6 +45,12 @@ ActiveRecord::Schema.define(version: 20150203235819) do
   add_index "general_admins", ["email"], name: "index_general_admins_on_email", unique: true
   add_index "general_admins", ["reset_password_token"], name: "index_general_admins_on_reset_password_token", unique: true
 
+  create_table "job_categories", force: true do |t|
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "job_positions", force: true do |t|
     t.string   "title"
     t.text     "description"
@@ -55,9 +61,11 @@ ActiveRecord::Schema.define(version: 20150203235819) do
     t.datetime "updated_at"
     t.integer  "company_id"
     t.boolean  "featured",        default: false
+    t.integer  "job_category_id"
   end
 
   add_index "job_positions", ["company_id"], name: "index_job_positions_on_company_id"
+  add_index "job_positions", ["job_category_id"], name: "index_job_positions_on_job_category_id"
 
   create_table "recommendations", force: true do |t|
     t.string   "name"
