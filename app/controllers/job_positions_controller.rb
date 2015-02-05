@@ -1,4 +1,7 @@
 class JobPositionsController < ApplicationController
+
+  before_filter :authenticate_general_admin!, except: [:index, :show, :canceladas]
+
   def index
     @company = Company.find(params[:company_id])
     @job_positions = @company.job_positions.all
