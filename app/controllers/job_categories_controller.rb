@@ -1,18 +1,30 @@
-class JobCategoriesController < AplicationController
+class JobCategoriesController < ApplicationController
 	def new
-    @job_categorie = JobCategorie.new
-
+    @category = JobCategory.new
 	end
 
 	def create
-   @job_categorie = JobCategorie.new
-	end
+    @category = JobCategory.new(category_params)
+    if @category.save
+      redirect_to @category
+    else
+      render "new"
+    end
+  end
 
+  def show
+    @categoria = JobCategory.find(params[:id])
+  end
+  
   def edit
-
-
   end
 
   def update
-
   end
+
+private
+  def category_params
+    params.require(:job_category).permit(:description)
+  end
+
+end

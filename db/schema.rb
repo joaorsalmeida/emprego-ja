@@ -27,7 +27,26 @@ ActiveRecord::Schema.define(version: 20150203232729) do
     t.datetime "avatar_updated_at"
   end
 
+  create_table "general_admins", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "general_admins", ["email"], name: "index_general_admins_on_email", unique: true
+  add_index "general_admins", ["reset_password_token"], name: "index_general_admins_on_reset_password_token", unique: true
+
   create_table "job_categories", force: true do |t|
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -41,12 +60,12 @@ ActiveRecord::Schema.define(version: 20150203232729) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "company_id"
-    t.boolean  "featured",          default: false
-    t.integer  "job_categories_id"
+    t.boolean  "featured",        default: false
+    t.integer  "job_category_id"
   end
 
   add_index "job_positions", ["company_id"], name: "index_job_positions_on_company_id"
-  add_index "job_positions", ["job_categories_id"], name: "index_job_positions_on_job_categories_id"
+  add_index "job_positions", ["job_category_id"], name: "index_job_positions_on_job_category_id"
 
   create_table "recommendations", force: true do |t|
     t.string   "name"
