@@ -31,6 +31,12 @@
   <label>Status do Anúncio</label>
   <%= f.select(:job_status, options_for_select([['Ativa', "Ativa"], ['Desativada', "Desativada"],['Cancelada', "Cancelada"]])) %>
 </div>
+
+<div class="field">
+  <label>Descrição da Vaga</label>
+  <%= collection_select(:description, :id, JobCategory.all, :description, :id) %>
+</div> 
+
 <div class="field">
   <label>Empresa</label>
   <strong><%= @job_position.company.fantasy_name %></strong>
