@@ -1,4 +1,7 @@
 class CompaniesController < ApplicationController
+  
+  before_filter :authenticate_general_admin!, except: [:index, :show, :edit, :update]
+
   def index
     @empresas = Company.all
   end
