@@ -7,12 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% unless user_signed_in? %>
+<%= link_to "Login User", new_user_session_path %>
+<% else %>
+<%= link_to "Logout", sign_out_path %>
+<% end %>
+<%= yield %>
 <% unless general_admin_signed_in? %>
 <%= link_to "Login Admin Geral", sign_in_path %>
 <% else %>
 <%= link_to "Logout", sign_out_path %>
 <% end %>
-<%= yield %>
-
 </body>
 </html>
