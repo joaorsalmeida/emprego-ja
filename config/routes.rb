@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+ devise_for :users
  #Modify Sign in and out routes
   devise_for :general_admins
     devise_scope :general_admin do

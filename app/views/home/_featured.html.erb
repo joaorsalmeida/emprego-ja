@@ -7,6 +7,8 @@
       <li><strong>Data de Expiração:</strong><%= destaque.expiration_date %></li>
       <li><strong>Status:</strong><%= destaque.job_status %></li>
       <li><strong>Empresa:</strong><%= destaque.company.fantasy_name if destaque.company %></li>
+      <li><strong>Descrição da vaga:</strong><%= destaque.description %></li>
+      <li><strong>Categoria:</strong><%= destaque.job_category.description %></li>
     </ul>
   <% end %>
 </div>

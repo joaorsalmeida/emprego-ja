@@ -17,11 +17,12 @@
       <li><strong>Vaga em destaque!</strong></li>
     <% end %>
     <li><strong>Título:</strong><%= @job_position.title %></li>
-    <li><strong>Descrição:</strong><%= @job_position.job_status %></li>
+    <li><strong>Descrição:</strong><%= @job_position.description %></li>
     <li><strong>Data de Expiração:</strong><%= @job_position.expiration_date %></li>
     <li><strong>Status:</strong><%= @job_position.job_status %></li>
     <li><strong>Localização:</strong><%g= @job_position.location %></li>
     <li><strong>Empresa:</strong><%= @job_position.company.fantasy_name %></li>
+    <li><strong>Categoria:</strong><%= @categoria.description %></li> 
     <li><%= link_to "Editar", edit_company_job_position_path(@job_position.company, @job_position) %></li>
     <li>essa vaga teve <%= @visits %> nas ultimas 24h</li>
   </ul>
