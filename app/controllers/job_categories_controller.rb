@@ -26,5 +26,4 @@ private
   def category_params
     params.require(:job_category).permit(:description)
   end
-
 end
