@@ -51,7 +51,7 @@ RSpec.describe CompaniesController, :type => :controller do
       it "Should create a company" do
         company1created = Company.create!(company1)
         post :create , :company => company1
-        expect(Company.first).to eq(company1created)
+        expect(Company.last).to eq(company1created)
       end 
     end
     describe "#Edit" do
@@ -101,21 +101,20 @@ RSpec.describe CompaniesController, :type => :controller do
     describe "#New" do
       it "Should render new" do
         get :new
-        expect(response).to render_template(:new)
+        expect(response).to redirect_to('/general_admins/sign_in')
       end
     end
     describe "#Create" do
       it "Should create a company" do
-        company1created = Company.create!(company1)
         post :create , :company => company1
-        expect(Company.first).to eq(company1created)
+        expect(Company.count).to eq(0)
       end 
     end
     describe "#Edit" do
       it "Should render edit" do
         c1 = Company.create!(company1)
         get :edit, :id => c1.id
-        expect(response).to render_template(:edit)
+        expect(response).to redirect_to('/general_admins/sign_in')
       end
     end
 
@@ -125,7 +124,7 @@ RSpec.describe CompaniesController, :type => :controller do
         c1 = Company.create!(company1)
         put :update, :id => c1.id, :company => {:fantasy_name => "vitor novo", :cnpj => cnpj_valido1, :url => "www.teste", :email => "eumesmo@eu.com", :phone => "23232373"}
         c1.reload
-        expect(c1.fantasy_name).to eq("vitor novo")
+        expect(c1.fantasy_name).to eq("nome teste")
       end
     end   
   end
