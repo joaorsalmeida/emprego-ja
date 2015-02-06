@@ -32,8 +32,8 @@
   <%= f.select(:job_status, options_for_select([['Ativa', "Ativa"], ['Desativada', "Desativada"],['Cancelada', "Cancelada"]])) %>
 </div>
 <div class="field">
- <label>Descrição da Vaga</label>
- <%= collection_select(:description, :description, JobCategory.all, :description, :description, {:prompt => 'Selecione'}) %>
+ <label>Categoria da Vaga</label>
+ <%= f.collection_select(:job_category, JobCategory.all, :id, :description) %>
 </div> 
 <div class="field">
   <label>Empresa</label>
