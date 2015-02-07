@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 describe JobPosition, :type => :model do
-
-  
   let(:vaga_ativa) { {:title => "Gerente", :description => "Vendas a Varejo", :location => "Zona Sul", :job_status => "Ativa", :company_id => 1} }
   let(:status_cancelado) { "Cancelada" }
   let(:vaga_nova) { Date.today - 3 }
@@ -12,7 +10,6 @@ describe JobPosition, :type => :model do
   let(:vaga_expirada) { Date.today - 1 }
 
   describe "#max_expiration" do
-    
     it "If new job position, it should sum the date of today plus 90 days" do
       j = JobPosition.new(vaga_ativa)
       expect(j.max_expiration).to eq(Date.today + 90)
@@ -23,11 +20,9 @@ describe JobPosition, :type => :model do
       j.created_at = Date.today
       expect(j.max_expiration).to eq(j.created_at + 90.days)
     end
-
   end
 
   describe "#canceled?" do
-  
     it "If job position canceled should return true" do
       j = JobPosition.create(vaga_ativa)
       j.job_status = status_cancelado
@@ -38,11 +33,9 @@ describe JobPosition, :type => :model do
       j = JobPosition.create(vaga_ativa)
       expect(j.canceled?).to eq(false)
     end
-
   end
 
   describe "#new_job_position?" do
-    
     it "Should return true if it's a new job position" do
       j = JobPosition.new(vaga_ativa)
       j.created_at = vaga_nova
@@ -53,12 +46,10 @@ describe JobPosition, :type => :model do
       j = JobPosition.new(vaga_ativa)
       j.created_at = vaga_velha
       expect(j.new_job_position?).to eq(false)
-    end 
-
+    end
   end
 
   describe "#last_expiration_days?" do
-    
     it "Should return true if it's on the last seven days from expiration" do
       j = JobPosition.new(vaga_ativa)
       j.expiration_date = vaga_a_expirar
@@ -76,7 +67,5 @@ describe JobPosition, :type => :model do
       j.expiration_date = vaga_expirada
       expect(j.last_expiration_days?).to eq(false)
     end
-
   end
-
 end
