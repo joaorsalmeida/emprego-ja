@@ -17,3 +17,5 @@
 /tmp
 /public/system
 /spec/tmp
+
+*.DS_Store
