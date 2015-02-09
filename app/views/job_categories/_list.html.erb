@@ -1,0 +1,14 @@
+<section>
+  <div>
+    <% @job_positions.each do |vaga| %>
+    <%= image_tag vaga.company.avatar.url(:thumb) %>
+    <ul>
+      <li><strong>Título:</strong><%= vaga.title %></li>
+      <li><strong>Data de Cadastro:</strong><%= vaga.created_at %></li>
+      <li><strong>Descrição da vaga:</strong><%= vaga.description %></li>
+      <li><strong>Categoria:</strong><%= vaga.job_category.description %></li>
+    </ul>
+    <%= link_to "Ver detalhes da vaga", company_job_position_path(vaga.company, vaga) %>
+    <% end %>
+  </div>
+</section>
