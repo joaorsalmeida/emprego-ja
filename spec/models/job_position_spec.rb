@@ -72,8 +72,3 @@ describe JobPosition, :type => :model do
       expect(j.last_expiration_days?).to eq(false)
     end
   end
-<<<<<<< HEAD
-end
-=======
-end
->>>>>>> 4bd9010c66c987f4ec65d1a634cb8b951545d535

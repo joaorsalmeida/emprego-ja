@@ -39,15 +39,6 @@ p, ul, li {
   text-align: right;
 }
 
-#vagas {
-  margin-left: auto;
-  padding-left: auto;
-  border-radius: 10px;
-  background-color: #F5F3F2;
-  margin-bottom: 10px;
-  list-style-type: none;
-}
-
 #menu p {
   color: #fff;
   font-size: 14px;
@@ -55,18 +46,13 @@ p, ul, li {
   text-align: left;
 }
 
-#destaques {
-background-color: #F5849E;
-padding: 5px;
-margin-bottom: 10px;
-text-align: left;
-list-style-type: none;
-}
-
-#destaques p {
-margin: 10px;
-line-height:auto;
-margin-top: 20px;
+#vagas {
+  margin-left: auto;
+  padding-left: auto;
+  border-radius: 10px;
+  background-color: #F5F3F2;
+  margin-bottom: 10px;
+  list-style-type: none;
 }
 
 #logos {
