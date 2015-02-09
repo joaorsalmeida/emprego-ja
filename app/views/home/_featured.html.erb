@@ -1,14 +1,13 @@
-<h1> Vagas em destaque </h1>
-<div>
-  <% @job_positions.featured.each do |destaque| %>
-
-    <ul>
-      <li><strong>Título:</strong><%= link_to destaque.title, [destaque.company, destaque] %></li>
-      <li><strong>Data de Expiração:</strong><%= destaque.expiration_date %></li>
-      <li><strong>Status:</strong><%= destaque.job_status %></li>
-      <li><strong>Empresa:</strong><%= destaque.company.fantasy_name if destaque.company %></li>
-      <li><strong>Descrição da vaga:</strong><%= destaque.description %></li>
-      <li><strong>Categoria:</strong><%= destaque.job_category.description %></li>
-    </ul>
-  <% end %>
+<div class="col-md-8 row">  
+  <h1> Vagas em destaque </h1>
+    <% @job_positions.featured.each do |destaque| %>
+      <div id="destaques" class="row">
+        <p><strong><%= link_to destaque.title, [destaque.company, destaque] %></strong></p>
+        <p><%= destaque.expiration_date %></p>
+        <p><%= destaque.job_status %></p>
+        <p><%= destaque.company.fantasy_name if destaque.company %></p>
+        <p><%= destaque.description %></p>
+        <p><%= destaque.job_category.description %></p>
+        <% end %>
+    </div>
 </div>

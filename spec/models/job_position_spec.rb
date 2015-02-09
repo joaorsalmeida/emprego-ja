@@ -2,8 +2,12 @@ require 'rails_helper'
 
 describe JobPosition, :type => :model do
 
+  before do
+    @category = JobCategory.create
+  end
+
   
-  let(:vaga_ativa) { {:title => "Gerente", :description => "Vendas a Varejo", :location => "Zona Sul", :job_status => "Ativa", :company_id => 1} }
+  let(:vaga_ativa) { {:title => "Gerente", :description => "Vendas a Varejo", :location => "Zona Sul", :job_status => "Ativa", :company_id => 1, :job_category_id => @category.id} }
   let(:status_cancelado) { "Cancelada" }
   let(:vaga_nova) { Date.today - 3 }
   let(:vaga_velha) { Date.today - 60 }
@@ -63,7 +67,7 @@ describe JobPosition, :type => :model do
       j = JobPosition.new(vaga_ativa)
       j.expiration_date = vaga_a_expirar
       expect(j.last_expiration_days?).to eq(true)
-    end
+      end
 
     it "Should return false if it isn't on the last seven days from expiration" do
       j = JobPosition.new(vaga_ativa)
@@ -76,7 +80,5 @@ describe JobPosition, :type => :model do
       j.expiration_date = vaga_expirada
       expect(j.last_expiration_days?).to eq(false)
     end
-
   end
-
 end

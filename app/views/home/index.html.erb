@@ -1,17 +1,47 @@
-<%= render 'featured'%>
-
-<h1>Últimas Vagas</h1>
-<section>
-  <div>
-    <% @job_positions.each do |vaga| %>
-    <%= image_tag vaga.company.avatar.url(:thumb) %>
-    <ul>
-      <li><strong>Título:</strong><%= vaga.title %></li>
-      <li><strong>Data de Cadastro:</strong><%= vaga.created_at %></li>
-      <li><strong>Descrição da vaga:</strong><%= vaga.description %></li>
-      <li><strong>Categoria:</strong><%= vaga.job_category.description %></li>
-    </ul>
-    <%= link_to "Ver detalhes da vaga", company_job_position_path(vaga.company, vaga) %>
-    <% end %>
+<div id="containter">
+    <div class="col-md-12">
+      <div class="col-md-12 row"> 
+        <div class="col-md-10 col-md-offset-1">  
+        
+           <h1>Últimas Vagas</h1>
+            <% @job_positions.each do |vaga| %>
+            <div id="vagas" class="col-md-12 img-rounded row">
+             <div id="logos" class="row col-md-4 img-rounded">
+                <%= image_tag vaga.company.avatar.url(), class:"img-rounded col-md-12"  %>
+              </div>
+                 <div id="descricao" class="row col-md-6">
+                  <p><strong><%= vaga.job_category.description %></strong></p>
+                  <p><h3><%= vaga.created_at %></h3></p>
+                  <p><%= vaga.description %></p>
+                  <p><%= link_to "Saiba mais", company_job_position_path(vaga.company, vaga, ), class:"saiba" %></p>
+                </div>
+            </div>
+            <% end %>    
+        </div>
+      </div>  
+    </div>
+  
+ <div  class="row">
+    <div class="colunas col-md-4 col-lg-4">
+      <h2>Aonde Estamos</h2>
+      <p>Avenida Paulista, 1000</p>
+      <p>São Paulo - SP</p>
+    </div>
+    <div class="colunas col-md-4 col-lg-4">
+      <h2> Pela Web </h2>
+      icon icon icon
+    </div>
+    <div class="colunas col-md-4 col-lg-4">
+      <h2>Sobre Emprego Já</h2>
+      <p> Emprego já é o seu novo jeito de encontrar seu emprego na web!</p>
+    </div>
   </div>
-</section>
+
+  <div class="footer">
+    <% unless general_admin_signed_in? %>
+    <%= link_to "Login Admin Geral", sign_in_path %>
+    <% else %>
+    <%= link_to "Logout", sign_out_path %>
+    <% end %>
+  </div>  
+</div>

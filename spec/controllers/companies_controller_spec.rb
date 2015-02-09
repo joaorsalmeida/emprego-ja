@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe CompaniesController, :type => :controller do
   let(:cnpj_valido1) { 67286015000139 }
   let(:cnpj_valido2) { 50304411000149 }
-  let(:vaga) {{:title => "Vaga 1",  :description => "descrição um 2 tres", :location => "zona sul", :expiration_date => "01/03/2015", :job_status => "Ativa"}}
+  let(:vaga) {{:title => "Vaga 1",  :description => "descrição um 2 tres", :location => "zona sul", :expiration_date => "01/03/2015", :job_status => "Ativa", :job_category => category}}
   describe "GET index" do
     it "returns http success" do
       get :index
