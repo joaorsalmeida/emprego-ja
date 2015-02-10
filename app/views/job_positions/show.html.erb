@@ -25,5 +25,18 @@
     <li><strong>Categoria:</strong><%= @categoria.description %></li> 
     <li><%= link_to "Editar", edit_company_job_position_path(@job_position.company, @job_position) %></li>
     <li>essa vaga teve <%= @visits %> nas ultimas 24h</li>
+    <% if user_signed_in? %>
+      <button id="jobApplication">Candidatar-se</button>
+    <%else%>
+      <button id="msgSignup">Candidatar-se</button>
+      <h2 id="msgCadastre" class="hiddenField">Cadastre-se para candidatar-se a essa vaga</h2>
+    <% end %>
   </ul>
 </section>
+<script>
+$(document).ready(function(){
+    $("#msgSignup").click(function(){
+        $("#msgCadastre").removeClass("hiddenField");
+    });
+});
+</script>
