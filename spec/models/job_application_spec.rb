@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe "recommendations/new.html.erb", :type => :view do
+RSpec.describe JobApplication, :type => :model do
   pending "add some examples to (or delete) #{__FILE__}"
 end

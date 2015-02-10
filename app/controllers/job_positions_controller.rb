@@ -50,10 +50,6 @@ class JobPositionsController < ApplicationController
     end
   end
 
-  def job_position_params
-    params.require(:job_position).permit(:title, :description, :location, :expiration_date, :job_status, :featured, :job_categories_id) 
-  end
-
   def show
     @job_position = JobPosition.find(params[:id])
     Visit.create({ip:request.remote_ip, job_position:@job_position})
@@ -67,5 +63,10 @@ class JobPositionsController < ApplicationController
   
   def expired
     @job_positions = JobPosition.expired
+  end
+
+private
+  def job_position_params
+    params.require(:job_position).permit(:title, :description, :location, :expiration_date, :job_status, :featured) 
   end
 end

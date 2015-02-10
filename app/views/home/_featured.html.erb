@@ -8,6 +8,7 @@
       <li><strong>Status:</strong><%= destaque.job_status %></li>
       <li><strong>Empresa:</strong><%= destaque.company.fantasy_name if destaque.company %></li>
       <li><strong>Descrição da vaga:</strong><%= destaque.description %></li>
+      <li><strong>Categoria:</strong><%= link_to destaque.job_category.description, job_category_path(destaque.job_category_id)%></li>
     </ul>
   <% end %>
 </div>
