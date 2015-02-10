@@ -1,4 +1,5 @@
 class Company < ActiveRecord::Base
+  belongs_to :company_admin
   has_many :job_positions
   has_many :recommendations
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" },
