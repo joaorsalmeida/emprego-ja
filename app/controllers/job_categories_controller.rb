@@ -14,6 +14,7 @@ class JobCategoriesController < ApplicationController
 
   def show
     @categoria = JobCategory.find(params[:id])
+    @job_positions = JobPosition.all.where(job_category_id: @categoria.id)
   end
   
   def edit
