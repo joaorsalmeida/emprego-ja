@@ -18,12 +18,32 @@
 
   <%= yield %>
 <div class="footer">
+  <div class="container">
+  <div  class="row">
+    <div class="colunas col-md-4 col-lg-4">
+      <h2>Aonde Estamos</h2>
+      <p>Avenida Paulista, 1000</p>
+      <p>São Paulo - SP</p>
+    </div>
+    <div class="colunas col-md-4 col-lg-4">
+      <h2> Pela Web </h2>
+      icon icon icon
+    </div>
+    <div class="colunas col-md-4 col-lg-4">
+      <h2>Sobre Emprego Já</h2>
+      <p> Emprego já é o seu novo jeito de encontrar seu emprego na web!</p>
+    </div>
+  </div>
+</div>
+
+<div> 
   <% unless general_admin_signed_in? %>
   <%= link_to "Login Admin Geral", sign_in_path %>
   <% else %>
   <%= link_to "Logout", sign_out_path %>
   <% end %>
-  </div>
+</div>
+  </section>
   
 </body>
 </html>

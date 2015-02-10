@@ -2,7 +2,7 @@ body {
   background-color: #fff;
 }
 
-h1, a, p {
+h1, p {
   font-size: 22px;
   color: #110440;
   text-align: center;
@@ -58,11 +58,9 @@ p, ul, li {
 #logos {
   padding: 5px;
   text-align: center;
-  background-color: #F5F3F2;
 }
 
 #descricao {
-background-color: #F5F3F2;
 margin: 10px;
 line-height:auto;
 margin-top: 20px;
@@ -74,7 +72,7 @@ margin-top: 20px;
   list-style-type: none;
 }
 
-#descricao p strong {
+#descricao h2 {
   font-size: 24px;
   text-transform: uppercase;
 }
@@ -88,7 +86,7 @@ margin-top: 20px;
   color: #fff;
 }
 
-.colunas, p  {
+.colunas p  {
   background-color: #110440;
   font-size: 12px;
   color: #fff; 
@@ -98,4 +96,8 @@ margin-top: 20px;
 .colunas h2 {
   font-size: 22px;
   text-align: center;
+}
+
+button a {
+  color: #fff;
 }

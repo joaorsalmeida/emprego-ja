@@ -5,37 +5,19 @@
         
            <h1>Últimas Vagas</h1>
             <% @job_positions.each do |vaga| %>
-            <div id="vagas" class="col-md-12 img-rounded row">
-             <div id="logos" class="row col-md-4 img-rounded">
+            <div id="vagas" class="col-md-12">
+             <div id="logos" class="col-md-4 img-rounded">
                 <%= image_tag vaga.company.avatar.url(), class:"img-rounded col-md-12"  %>
               </div>
                  <div id="descricao" class="row col-md-6">
-                  <p><strong><%= vaga.job_category.description %></strong></p>
+                  <h2><%= vaga.job_category.description %></h2>
                   <p><h3><%= vaga.created_at %></h3></p>
                   <p><%= vaga.description %></p>
-                  <p><%= link_to "Saiba mais", company_job_position_path(vaga.company, vaga, ), class:"saiba" %></p>
+                  <button class="btn btn-primary"  type="button"><%= link_to "Saiba mais", company_job_position_path(vaga.company, vaga, )%></button>
                 </div>
             </div>
             <% end %>    
         </div>
       </div>  
-    </div>
-  
- <div  class="row">
-    <div class="colunas col-md-4 col-lg-4">
-      <h2>Aonde Estamos</h2>
-      <p>Avenida Paulista, 1000</p>
-      <p>São Paulo - SP</p>
-    </div>
-    <div class="colunas col-md-4 col-lg-4">
-      <h2> Pela Web </h2>
-      icon icon icon
-    </div>
-    <div class="colunas col-md-4 col-lg-4">
-      <h2>Sobre Emprego Já</h2>
-      <p> Emprego já é o seu novo jeito de encontrar seu emprego na web!</p>
-    </div>
+    </div> 
   </div>
-
-    
-</div>
