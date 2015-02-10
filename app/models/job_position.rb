@@ -2,6 +2,7 @@ class JobPosition < ActiveRecord::Base
   belongs_to :company
   belongs_to :job_category
   has_many :visits
+  has_many :job_applications
 
   scope :canceladas,	-> { where ("job_status == 'Cancelada'") }
   scope :expired, 	-> { where("expiration_date < ?", Date.today) }
