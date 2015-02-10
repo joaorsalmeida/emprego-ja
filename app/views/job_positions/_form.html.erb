@@ -39,7 +39,7 @@
 
 <div class="field">
  <label>Categoria da Vaga</label>
- <%= f.collection_select(:job_category, JobCategory.all, :id, :description) %>
+ <%= f.collection_select(:job_category, JobCategory.all, :id, :description, {prompt: "Selecione"}) %>
 </div> 
 <div class="field">
   <label>Empresa</label>

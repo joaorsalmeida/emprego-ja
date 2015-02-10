@@ -3,6 +3,11 @@ require 'rails_helper'
 RSpec.describe CompaniesController, :type => :controller do
   let(:cnpj_valido1) { 67286015000139 }
   let(:cnpj_valido2) { 50304411000149 }
+  let(:vaga) {{:title => "Vaga 1",  :description => "descrição um 2 tres", :location => "zona sul", :expiration_date => "01/03/2015", :job_status => "Ativa", :job_category => category}}
+  describe "GET index" do
+    it "returns http success" do
+      get :index
+      expect(response).to have_http_status(:success)
   let(:vaga) {{:title => "Vaga 1",  :description => "descrição um 2 tres", :location => "zona sul", :expiration_date => "01/03/2015", :job_status => "Ativa"}}
   let(:company1) {{:fantasy_name => "nome teste",   :cnpj => cnpj_valido1, :url => "www.teste", :email => "eumesmo@eu.com", :phone => "23232373"}}
   let(:company2) {{:fantasy_name => "nome teste",   :cnpj => cnpj_valido2, :url => "www.teste", :email => "eumesmo@eu.com", :phone => "23232373"}}

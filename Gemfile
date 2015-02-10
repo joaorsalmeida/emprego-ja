@@ -38,5 +38,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
 end
 
+gem 'bootstrap-sass', '~> 3.3.3'
+
 gem 'devise'
 # Found here on https://github.com/plataformatec/devise

@@ -17,7 +17,9 @@ class JobPositionsController < ApplicationController
   def create
     @job_position = JobPosition.new(job_position_params)
     @job_position.company = Company.find(params[:company_id])
-    @job_position.job_category = JobCategory.find(params[:job_position][:job_category])
+    if params[:job_position][:job_category] != ""
+      @job_position.job_category = JobCategory.find(params[:job_position][:job_category])
+    end
     if @job_position.save 
       redirect_to [@job_position.company, @job_position]
     else
@@ -42,7 +44,9 @@ class JobPositionsController < ApplicationController
     @job_position = JobPosition.find(params[:id])
     @company = Company.find(params[:company_id])
     @job_position.company = @company
-    @job_position.job_category = JobCategory.find(params[:job_position][:job_category])
+    if params[:job_position][:job_category] != ""
+      @job_position.job_category = JobCategory.find(params[:job_position][:job_category])
+    end
     if @job_position.update(job_position_params)
       redirect_to [@company, @job_position]
     else
