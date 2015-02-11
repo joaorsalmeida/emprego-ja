@@ -1,24 +1,35 @@
-    <div class="col-md-12">
-      <div class="col-md-12 row"> 
-        <div class="col-md-10 col-md-offset-1">  
-        
-           <h1>Últimas Vagas</h1>
-            <% @job_positions.each do |vaga| %>
-         
-            <div class="row">
+  <section class="col-md-10">
+     
+      <div class="col-md-10 col-md-offset-1">  
+      
+         <h1>Últimas Vagas</h1>
+          <% @job_positions.each do |vaga| %>
+       
+          <div class="row">
             <div id="vagas" class="col-md-12">
-             <div id="logos" class="col-md-4 img-rounded">
-                <%= image_tag vaga.company.avatar.url(), class:"img-rounded col-md-12"  %>
-              </div>
-                 <div id="descricao" class="row col-md-6">
+               <div id="logos" class="col-md-4 img-rounded">
+                  <%= image_tag vaga.company.avatar.url(), class:"img-rounded col-md-12"  %>
+                </div>
+                 <div id="descricao" class="row col-md-4">
                   <h2><%= vaga.job_category.description %></h2>
                   <p><h3><%= vaga.created_at %></h3></p>
                   <p><%= vaga.description %></p>
                   <button class="btn btn-primary"  type="button"><%= link_to "Saiba mais", company_job_position_path(vaga.company, vaga, )%></button>
                 </div>
-                <li><strong>Categoria:</strong><%= link_to vaga.job_category.description, job_category_path(vaga.job_category_id)%></li>
             </div>
-            <% end %>    
-      </div>  
-    </div> 
+          </div>  
+          <% end %>    
+    
+  </div> 
+</section>
+
+  <div id="filters" class="row">
+    <div class="col-md-1">
+      <h2>Filtros:</h2>
+      <strong>Categoria:</strong>
+      <%=  JobCategory.category_filter.each do |vagas| %>
+      <%= link_to vagas.description, vagas %>
+      <% end %>  
+    </div>
   </div>
+  

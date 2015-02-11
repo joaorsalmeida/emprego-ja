@@ -57,6 +57,7 @@ p, ul, li {
 }
 
 #vagas {
+  background-color: #000;
   margin-left: auto;
   padding-left: auto;
   border-radius: 10px;
@@ -65,6 +66,9 @@ p, ul, li {
   list-style-type: none;
 }
 
+#filters {
+  background-color: #445544;
+}
 #logos {
   padding: 5px;
   text-align: center;

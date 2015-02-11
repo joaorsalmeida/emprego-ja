@@ -35,4 +35,8 @@ class JobPosition < ActiveRecord::Base
   def featured
     featured = true
   end
+
+  def self.categorias_ativas
+    JobPosition.where(status: 'Ativa').group("job_category(id)")
+  end
 end
