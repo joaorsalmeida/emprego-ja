@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
-.hiddenField {
-	display: none;
-}
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import 'stylesheet.css.scss'

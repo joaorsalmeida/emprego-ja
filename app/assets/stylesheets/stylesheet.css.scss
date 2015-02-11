@@ -1,0 +1,122 @@
+body {
+  background-color: #fff;
+}
+
+h1, p {
+  font-size: 22px;
+  color: #110440;
+  text-align: center;
+}
+
+h3 {
+  font-size: 10px;
+  text-align: left;
+}
+
+p, ul, li {
+  font-size: 18px;
+  color: #110440;
+  text-align: center;
+}
+
+#container {
+  background-color: #fff;
+}
+
+#menu {
+  padding: 10px;
+  background-color: #110440;
+  color: #fff;
+  font-size: 14px;
+  font-family: sans-serif;
+  text-align: right;
+  line-height: 24px;
+}
+#menu a {
+  color: #fff;
+  font-size: 12px;
+  font-family: sans-serif;
+  text-align: right;
+}
+
+#menu p {
+  color: #fff;
+  font-size: 14px;
+  font-family: sans-serif;
+  text-align: left;
+}
+
+#row {
+  padding: 5px;
+  background-color: #110440;
+  color: #fff;
+  font-size: 14px;
+  font-family: sans-serif;
+  text-align: right;
+  line-height: 24px;
+}
+
+#vagas {
+  background-color: #000;
+  margin-left: auto;
+  padding-left: auto;
+  border-radius: 10px;
+  background-color: #F5F3F2;
+  margin-bottom: 10px;
+  list-style-type: none;
+}
+
+#filters {
+  background-color: #445544;
+}
+#logos {
+  padding: 5px;
+  text-align: center;
+}
+
+#descricao {
+margin: 10px;
+line-height:auto;
+margin-top: 20px;
+}
+
+#descricao p {
+  font-size: 14px;
+  text-align: left;
+  list-style-type: none;
+}
+
+#descricao h2 {
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+.saiba {
+  padding: 5px; 
+  width: 15px;
+  background-color: #110440;
+  border-radius: 5px;
+  font-size: 12px;
+  color: #fff;
+}
+
+.colunas p  {
+  background-color: #110440;
+  font-size: 12px;
+  color: #fff; 
+  text-align: center;
+}
+
+.colunas h2 {
+  font-size: 22px;
+  text-align: center;
+}
+
+button a {
+  color: #fff;
+}
+
+
+.hiddenField {
+  display: none;
+}

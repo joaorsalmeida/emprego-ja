@@ -1,7 +1,7 @@
  require 'rails_helper'
 
 RSpec.describe HomeController, :type => :controller do
-  let(:vaga) {{:title => "Vaga 1",  :description => "descrição um 2 tres", :location => "zona sul", :expiration_date => "01/03/2015", :job_status => "Ativa"}}
+  let(:vaga) {{:title => "Vaga 1",  :description => "descrição um 2 tres", :location => "zona sul", :expiration_date => "01/03/2015", :job_status => "Ativa", :job_category => 1}}
   let(:empresa){{:fantasy_name => "nome teste",   :cnpj => 67286015000139, :url => "www.teste", :email => "eumesmo@eu.com", :phone => "23232373"}}
   before(:each) do
     @company = Company.create!(empresa)

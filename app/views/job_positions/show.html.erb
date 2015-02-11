@@ -27,16 +27,34 @@
     <li>essa vaga teve <%= @visits %> nas ultimas 24h</li>
     <% if user_signed_in? %>
       <button id="jobApplication">Candidatar-se</button>
+      <div id="cadastro" class="modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">Cadastre-se</h4>
+              <p>Modal</p>
+            </div>
+          </div>
+        </div>
+      </div>
     <%else%>
       <button id="msgSignup">Candidatar-se</button>
-      <h2 id="msgCadastre" class="hiddenField">Cadastre-se para candidatar-se a essa vaga</h2>
+      <h2 id="msgCadastre" class="hidden">Cadastre-se para candidatar-se a essa vaga</h2>
     <% end %>
   </ul>
 </section>
 <script>
 $(document).ready(function(){
     $("#msgSignup").click(function(){
-        $("#msgCadastre").removeClass("hiddenField");
+        $("#msgCadastre").removeClass("hidden");
     });
 });
+</script>
+<script>
+$(document).ready(function(){
+ $("#jobApplication").click(function(){
+    $("#cadastro").modal('show');
+  });
+});  
 </script>
