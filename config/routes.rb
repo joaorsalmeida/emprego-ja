@@ -14,7 +14,9 @@ Rails.application.routes.draw do
  get '/companies/:company_id/job_positions/expiradas', to: 'job_positions#expired'
 
   resources :companies do
-    resources :job_positions
+    resources :job_positions do
+      resources :job_applications
+    end
     resources :recommendations
   end 
 

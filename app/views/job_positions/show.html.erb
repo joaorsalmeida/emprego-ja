@@ -6,6 +6,7 @@
 <% end %>
 <%= link_to "ver todas as vagas", company_job_positions_path %>
 <section>
+  <%= flash[:notice]%>
   <ul>
     <% if @new_job_position %>
     <li><strong>Vaga nova!</strong></li>
@@ -27,16 +28,7 @@
     <li>essa vaga teve <%= @visits %> nas ultimas 24h</li>
     <% if user_signed_in? %>
       <button id="jobApplication">Candidatar-se</button>
-      <div id="cadastro" class="modal fade">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              <h4 class="modal-title">Cadastre-se</h4>
-              <p>Modal</p>
-            </div>
-          </div>
-        </div>
+      <%= render 'modalApplication'%>
       </div>
     <%else%>
       <button id="msgSignup">Candidatar-se</button>
