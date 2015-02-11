@@ -13,6 +13,7 @@ class CompaniesController < ApplicationController
 
   def new
     @empresa = Company.new
+    @empresa.build_company_admin
   end
 
   def create
@@ -36,8 +37,7 @@ class CompaniesController < ApplicationController
       render "edit"
     end
   end
-
   def empresa_params
-    params.require(:company).permit(:fantasy_name, :cnpj, :url, :email, :phone, :avatar)
+    params.require(:company).permit(:fantasy_name, :cnpj, :url, :email, :phone, :avatar, :company_admin_attributes => [:email,:password])
   end
 end

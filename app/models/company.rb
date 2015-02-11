@@ -1,9 +1,10 @@
 class Company < ActiveRecord::Base
-  belongs_to :company_admin
+  has_one :company_admin
   has_many :job_positions
   has_many :recommendations
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" },
                                           :default_url => "/system/companies/avatars/000/000/011/:style/missing.jpg"
+  accepts_nested_attributes_for :company_admin
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   validates_presence_of :fantasy_name, :cnpj, :url, :email, :phone
   validates_numericality_of :cnpj, :phone

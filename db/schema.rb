@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150210151828) do
+ActiveRecord::Schema.define(version: 20150211215244) do
 
   create_table "companies", force: true do |t|
     t.string   "fantasy_name"
@@ -25,10 +25,7 @@ ActiveRecord::Schema.define(version: 20150210151828) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.integer  "company_admin_id"
   end
-
-  add_index "companies", ["company_admin_id"], name: "index_companies_on_company_admin_id"
 
   create_table "company_admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -43,8 +40,10 @@ ActiveRecord::Schema.define(version: 20150210151828) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "company_id"
   end
 
+  add_index "company_admins", ["company_id"], name: "index_company_admins_on_company_id"
   add_index "company_admins", ["email"], name: "index_company_admins_on_email", unique: true
   add_index "company_admins", ["reset_password_token"], name: "index_company_admins_on_reset_password_token", unique: true
 
