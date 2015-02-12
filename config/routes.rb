@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       get '/sign_in', to: 'devise/sessions#new'
       get '/sign_out',to: 'devise/sessions#destroy'
     end
-  devise_for :company_admins
+    devise_for :company_admins, skip: :registrations
   #, controllers: {sessions: 'sessions'}
 
 

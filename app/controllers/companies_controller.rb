@@ -44,7 +44,6 @@ class CompaniesController < ApplicationController
   def edit
     @empresa = Company.find(params[:id])
     @new = @empresa.new_company?
-
     unless general_admin_signed_in? || @empresa.id == current_company_admin.company_id
       redirect_to root_path
     end
