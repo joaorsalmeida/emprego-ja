@@ -66,8 +66,10 @@ p, ul, li {
   list-style-type: none;
 }
 
-#filters {
-  background-color: #445544;
+#filters p  {
+text-align: left;
+font-size: 12px;
+
 }
 #logos {
   padding: 5px;

@@ -63,6 +63,7 @@ class JobPositionsController < ApplicationController
     @new_job_position = @job_position.new_job_position?
     @last_expiration_days = @job_position.last_expiration_days?
     @featured = @job_position.featured?
+    @job_application = @job_position.job_applications.build
   end
   
   def expired
