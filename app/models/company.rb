@@ -13,4 +13,11 @@ class Company < ActiveRecord::Base
   validates_format_of :url, with: /\A(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?\z/, on: :create
   validates_uniqueness_of :cnpj
   validates :cnpj, :cnpj => true
+  def new_company?
+    if id == nil
+      return true
+    else
+      return false
+    end
+  end
 end

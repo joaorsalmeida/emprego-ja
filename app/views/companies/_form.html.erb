@@ -52,24 +52,26 @@
     <%= f.file_field :avatar %>
     </div>
   </p>
-  <%= f.fields_for :company_admin do |sub_f|%>
-    <div class="field">
-      <%= sub_f.label :email %><br />
-      <%= sub_f.email_field :email, autofocus: true %>
-    </div>
+  <% if @new %>
+    <%= f.fields_for :company_admin do |sub_f|%>
+      <div class="field">
+        <%= sub_f.label :email %><br />
+        <%= sub_f.email_field :email, autofocus: true %>
+      </div>
 
-    <div class="field">
-      <%= sub_f.label :password %>
-      <% if @validatable %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= sub_f.password_field :password, autocomplete: "off" %>
-    </div>
+      <div class="field">
+        <%= sub_f.label :password %>
+        <% if @validatable %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= sub_f.password_field :password, autocomplete: "off" %>
+      </div>
 
-    <div class="field">
-      <%= sub_f.label :password_confirmation %><br />
-      <%= sub_f.password_field :password_confirmation, autocomplete: "off" %>
-    </div>
+      <div class="field">
+        <%= sub_f.label :password_confirmation %><br />
+        <%= sub_f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
+    <% end %>
   <% end %>
   <p>
     <button type="submit">Salvar</button>
