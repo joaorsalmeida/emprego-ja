@@ -22,7 +22,7 @@ end
 
 root 'home#index'
 
-resources :job_categories, only: [:edit, :new, :show, :create]
+resources :job_categories, only: [:edit, :new, :show, :create,:index]
 
   # get 'companies/index'
 
