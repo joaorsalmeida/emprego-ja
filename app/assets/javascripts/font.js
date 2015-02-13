@@ -1,4 +1,3 @@
-<script type="text/javascript">
   WebFontConfig = {
     google: { families: [ 'Montserrat:400,700:latin' ] }
   };
@@ -11,4 +10,3 @@
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(wf, s);
   })();
-  </script>
