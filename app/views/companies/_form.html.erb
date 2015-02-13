@@ -54,23 +54,29 @@
   </p>
   <% if @empresa.new_company? %>
     <%= f.fields_for :company_admin do |sub_f|%>
-      <div class="field">
-        <%= sub_f.label :email %><br />
-        <%= sub_f.email_field :email, autofocus: true %>
-      </div>
+      <p>
+        <div class="field">
+          <%= sub_f.label :email %><br />
+          <%= sub_f.email_field :email, class:"form-control", autofocus: true %>
+        </div>
+      </p>
 
-      <div class="field">
-        <%= sub_f.label :password %>
-        <% if @validatable %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= sub_f.password_field :password, autocomplete: "off" %>
-      </div>
+      <p>
+        <div class="field">
+          <%= sub_f.label :password %>
+          <% if @validatable %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= sub_f.password_field :password, class:"form-control", autocomplete: "off" %>
+        </div>
+      </p>
 
-      <div class="field">
-        <%= sub_f.label :password_confirmation %><br />
-        <%= sub_f.password_field :password_confirmation, autocomplete: "off" %>
-      </div>
+      <p>
+        <div class="field">
+          <%= sub_f.label :password_confirmation %><br />
+          <%= sub_f.password_field :password_confirmation, class:"form-control", autocomplete: "off" %>
+        </div>
+      </p>  
     <% end %>
   <% end %>
   <p>
