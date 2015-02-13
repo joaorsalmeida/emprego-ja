@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
 
-  before_action :authenticate_general_admin!, except: [:index, :show, :edit, :update ]
+  before_action :authenticate_general_admin!, only: [:new, :create]
 
   def index
     @empresas = Company.all
@@ -27,13 +27,11 @@ class CompaniesController < ApplicationController
   end
 
   def edit
-    @empresa = Company.find(params[:id])
     authentication
     @new = @empresa.new_company?
   end
 
   def update
-    @empresa = Company.find(params[:id])
     authentication
     if @empresa.update(empresa_params)
       redirect_to @empresa
@@ -46,6 +44,7 @@ private
     params.require(:company).permit(:fantasy_name, :cnpj, :url, :email, :phone, :avatar, :company_admin_attributes => [:email,:password])
   end
   def authentication
+    @empresa = Company.find(params[:id])
     unless general_admin_signed_in? || company_admin_signed_in? && @empresa.id == current_company_admin.company_id
       redirect_to root_path
     end
