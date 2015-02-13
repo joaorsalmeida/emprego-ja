@@ -8,7 +8,6 @@ class CompaniesController < ApplicationController
 
   def show
     @empresa = Company.find(params[:id])
-    @vagas = @empresa.job_positions
   end
 
   def new

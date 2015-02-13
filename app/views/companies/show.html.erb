@@ -13,11 +13,11 @@
       <li><%=link_to "Cadastrar nova vaga", new_company_job_position_path(@empresa) %></li>
     </ul>
 </div>
-<% unless @vagas.empty?  %>
+<% unless @empresa.job_positions.empty?  %>
 <h2>Vagas da Empresa:</h2>
 
 <div>
-  <% @vagas.each do |vaga| %>
+  <% @empresa.job_positions.each do |vaga| %>
   <ul>
     <% if flash[:notice] %>
       <div class="warning">
