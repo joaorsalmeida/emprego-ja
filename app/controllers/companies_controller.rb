@@ -13,7 +13,6 @@ class CompaniesController < ApplicationController
 
   def new
     @empresa = Company.new
-    @new = @empresa.new_company?
     @empresa.build_company_admin
   end
 
@@ -27,12 +26,11 @@ class CompaniesController < ApplicationController
   end
 
   def edit
-    authentication
-    @new = @empresa.new_company?
+    authentication  #the authentication(method) will load the company and do the authentication
   end
 
   def update
-    authentication
+    authentication  #the authentication(method) will load the company and do the authentication
     if @empresa.update(empresa_params)
       redirect_to @empresa
     else

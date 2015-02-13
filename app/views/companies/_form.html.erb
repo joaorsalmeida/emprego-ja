@@ -52,7 +52,7 @@
     <%= f.file_field :avatar %>
     </div>
   </p>
-  <% if @new %>
+  <% if @empresa.new_company? %>
     <%= f.fields_for :company_admin do |sub_f|%>
       <div class="field">
         <%= sub_f.label :email %><br />
