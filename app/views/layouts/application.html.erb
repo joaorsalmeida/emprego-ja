@@ -8,6 +8,17 @@
 </head>
 <body>
 <div id="menu" class="navbar navbar-default navbar-static-top">
+  <ul>
+    <% if user_signed_in? %>
+      <li><%= link_to 'Página inicial', root_path %></li>
+      <li><%= link_to 'Empresas', companies_path %></li>
+    <% elsif general_admin_signed_in? %>
+      <li><%= link_to 'Página inicial', root_path %></li>
+      <li><%= link_to 'Empresas', companies_path %></li>
+      <li><%= link_to 'Categorias', job_categories_path %></li>
+    <% end %>
+  </ul>
+
   <p class="col-md-6"> EMPREGO-JÁ </p>
   <% unless user_signed_in? %>
   <%= link_to "Login User", new_user_session_path %>

@@ -1,5 +1,9 @@
 class JobCategoriesController < ApplicationController
-	def new
+	def index
+    @categories = JobCategory.all
+  end
+
+  def new
     @category = JobCategory.new
 	end
 
