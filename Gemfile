@@ -39,10 +39,11 @@ end
 
 group :production do
   gem 'pg'
+  gem 'carrierwave'
 end
 
 gem 'bootstrap-sass', '~> 3.3.3'
 
 gem 'devise'
 # Found here on https://github.com/plataformatec/devise
-ruby "2.2.0"
+ruby "2.1.1"
