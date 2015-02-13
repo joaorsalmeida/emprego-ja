@@ -1,22 +1,7 @@
 class CompaniesController < ApplicationController
 
-  before_filter :authenticate_general_admin!, except: [:index, :show, :edit, :update ]
-  before_filter :authentication, except: :roles
+  before_action :authenticate_general_admin!, except: [:index, :show, :edit, :update ]
 
-  def authentication
-    if company_admin_signed_in?
-      authenticate_company_admin!
-    else
-      authenticate_general_admin!
-    end
-  end
-  def roles
-    if company_admin_signed_in?
-      [:index, :show, :edit, :update]
-    else
-      [:index, :show]
-    end
-  end
   def index
     @empresas = Company.all
   end
@@ -43,21 +28,26 @@ class CompaniesController < ApplicationController
 
   def edit
     @empresa = Company.find(params[:id])
+    authentication
     @new = @empresa.new_company?
-    unless general_admin_signed_in? || @empresa.id == current_company_admin.company_id
-      redirect_to root_path
-    end
   end
 
   def update
     @empresa = Company.find(params[:id])
+    authentication
     if @empresa.update(empresa_params)
       redirect_to @empresa
     else
       render "edit"
     end
   end
+private
   def empresa_params
     params.require(:company).permit(:fantasy_name, :cnpj, :url, :email, :phone, :avatar, :company_admin_attributes => [:email,:password])
+  end
+  def authentication
+    unless general_admin_signed_in? || company_admin_signed_in? && @empresa.id == current_company_admin.company_id
+      redirect_to root_path
+    end
   end
 end

@@ -1,6 +1,6 @@
 class JobPositionsController < ApplicationController
 
-  before_filter :authenticate_general_admin!, except: [:index, :show, :canceladas]
+  before_filter :authenticate_general_admin!, except: [:index, :show, :canceladas, :new, :create, :edit, :update]
 
   def index
     @company = Company.find(params[:company_id])
@@ -10,6 +10,7 @@ class JobPositionsController < ApplicationController
   def new
     @job_position = JobPosition.new
     @job_position.company = Company.find(params[:company_id])
+    authentication
     @min_expiration = Date.today
     @max_expiration = @job_position.max_expiration
   end
@@ -17,6 +18,7 @@ class JobPositionsController < ApplicationController
   def create
     @job_position = JobPosition.new(job_position_params)
     @job_position.company = Company.find(params[:company_id])
+    authentication
     if params[:job_position][:job_category] != ""
       @job_position.job_category = JobCategory.find(params[:job_position][:job_category])
     end
@@ -34,6 +36,7 @@ class JobPositionsController < ApplicationController
 
   def edit
     @job_position = JobPosition.find(params[:id])
+    authentication
     @min_expiration = @job_position.created_at
     @max_expiration = @job_position.max_expiration
     flash[:notice] = "Vaga já foi cancelada!" if @job_position.canceled?
@@ -43,6 +46,7 @@ class JobPositionsController < ApplicationController
   def update
     @job_position = JobPosition.find(params[:id])
     @company = Company.find(params[:company_id])
+    authentication
     @job_position.company = @company
     if params[:job_position][:job_category] != ""
       @job_position.job_category = JobCategory.find(params[:job_position][:job_category])
@@ -73,5 +77,10 @@ class JobPositionsController < ApplicationController
 private
   def job_position_params
     params.require(:job_position).permit(:title, :description, :location, :expiration_date, :job_status, :featured) 
+  end
+  def authentication
+    unless general_admin_signed_in? || company_admin_signed_in? && @job_position.company_id == current_company_admin.company_id
+      redirect_to root_path
+    end
   end
 end
