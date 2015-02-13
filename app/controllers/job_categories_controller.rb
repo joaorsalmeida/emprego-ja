@@ -1,4 +1,6 @@
 class JobCategoriesController < ApplicationController
+  before_action :authenticate_general_admin!, except: [:index, :new]
+
 	def index
     @categories = JobCategory.all
   end
