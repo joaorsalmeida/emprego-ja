@@ -25,11 +25,11 @@ class CompaniesController < ApplicationController
   end
 
   def edit
-    authentication  #the authentication(method) will load the company and do the authentication
+    user_authentication  #the authentication(method) will load the company and do the authentication
   end
 
   def update
-    authentication  #the authentication(method) will load the company and do the authentication
+    user_authentication  #the authentication(method) will load the company and do the authentication
     if @empresa.update(empresa_params)
       redirect_to @empresa
     else
@@ -40,7 +40,7 @@ private
   def empresa_params
     params.require(:company).permit(:fantasy_name, :cnpj, :url, :email, :phone, :avatar, :company_admin_attributes => [:email,:password])
   end
-  def authentication
+  def user_authentication
     @empresa = Company.find(params[:id])
     unless general_admin_signed_in? || company_admin_signed_in? && @empresa.id == current_company_admin.company_id
       redirect_to root_path
